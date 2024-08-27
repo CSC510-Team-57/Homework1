@@ -24,10 +24,6 @@ jobs:
           pip install pytest pytest-cov
       - name: Test with pytest
         run: pytest --cov-report json:coverage/coverage-summary.json --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml tests.py
-
-        #Testing to print the coverage report
-      - name: Debug Coverage Summary
-        run: cat coverage/coverage-summary.json
  
       # Install Coverage Badge Extension
      # - name: Update Coverage Badge
