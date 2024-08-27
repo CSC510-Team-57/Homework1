@@ -23,8 +23,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pytest-cov
       - name: Test with pytest
-        run: pytest tests.py --cov=. --cov-report json:coverage/coverage-summary.json --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
-        
+        run: pytest --cov=. --cov-report=json:coverage/coverage-summary.json --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml tests.py
+ 
       # Install Coverage Badge Extension
       - name: Update Coverage Badge
         # GitHub actions: default branch variable
