@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest
+          pip install pytest pytest-cov
       - name: Test with pytest
         run: pytest tests.py --cov=. --cov-report json:coverage/coverage-summary.json --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
         
