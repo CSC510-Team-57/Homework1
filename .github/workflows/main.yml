@@ -23,14 +23,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
       - name: Test with pytest
-        run: pytest tests.py --doctest-modules --json-report --json-report-file=./coverage/coverage-summary.json --junitxml=junit/test-results-${{ matrix.python-version }}.xml
-
-        #Testing to see if this works
-      - name: Test Debug
-        run: |
-          echo "Branch: ${{ github.ref_name }}"
-          echo "Default Branch: ${{ github.event.repository.default_branch }}"
-
+        run: pytest tests.py --cov=. --cov-report json:coverage/coverage-summary.json --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+        
       # Install Coverage Badge Extension
       - name: Update Coverage Badge
         # GitHub actions: default branch variable
