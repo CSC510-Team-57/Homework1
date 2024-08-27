@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
       - name: Test with pytest
-        run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+        run: pytest tests.py --doctest-modules --json-report --json-report-file=./coverage/coverage-summary.json --junitxml=junit/test-results-${{ matrix.python-version }}.xml
 
         #Testing to see if this works
       - name: Test Debug
