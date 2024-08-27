@@ -16,6 +16,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+          
+      # Install Coverage Badge Extension
+      - name: Coverage Badge
+        uses: we-cli/coverage-badge-action@v1.0.1
+            
       # Install pip and pytest
       - name: Install dependencies
         run: |
@@ -30,3 +35,4 @@ jobs:
           path: junit/test-results-${{ matrix.python-version }}.xml
         # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
+      
